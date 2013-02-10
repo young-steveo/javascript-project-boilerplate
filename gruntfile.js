@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 
             // add'l packages
 
+            'src/export.js',
             'src/outro.js'
         ],
         pkg : grunt.file.readJSON('package.json'),
