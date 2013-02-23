@@ -1,7 +1,12 @@
 /*global module:false*/
+
 module.exports = function(grunt) {
     "use strict";
-    var config = {
+    var pkg, config;
+
+    pkg = grunt.file.readJSON('package.json');
+
+    config = {
         banner : [
             '/**\n',
             ' * <%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n',
@@ -20,7 +25,7 @@ module.exports = function(grunt) {
             'src/export.js',
             'src/outro.js'
         ],
-        pkg : grunt.file.readJSON('package.json'),
+        pkg : pkg,
         uglifyFiles : {}
     };
 
@@ -79,5 +84,45 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     // Default task.
-    grunt.registerTask('default', ['clean', 'concat', 'jshint', 'uglify', 'jasmine']);
+    grunt.registerTask('default', ['boilerplate-check', 'clean', 'concat', 'jshint', 'uglify', 'jasmine']);
+
+    grunt.registerTask('boilerplate-check', 'Ensures defaults have been updated.', function() {
+        var configured, log;
+
+        configured = true;
+        log = grunt.log;
+        if (pkg.name === 'project-name') {
+            log.writeln('project.json.name has not been configured.');
+            configured = false;
+        }
+        if (pkg.author === 'Your Name <your.name@domain.com>') {
+            log.writeln('project.json.author has not been configured.');
+            configured = false;
+        }
+        if (pkg.description === '') {
+            log.writeln('project.json.description has not been configured.');
+            configured = false;
+        }
+        if (pkg.contributors[0].name === 'Your Name') {
+            log.writeln('project.json.contributors name has not been configured.');
+            configured = false;
+        }
+        if (pkg.contributors[0].email === 'your.name@domain.com') {
+            log.writeln('project.json.contributors email has not been configured.');
+            configured = false;
+        }
+        if (pkg.main === null) {
+            log.writeln('project.json.main is null. Use grunt --force and find the file in ./dist');
+            configured = false;
+        }
+        if (pkg.repository.url === 'https://github.com/...') {
+            log.writeln('project.json.repository.url has not been configured.');
+            configured = false;
+        }
+        if (!pkg.keywords.length) {
+            log.writeln('project.json.keywords have not been configured.');
+            configured = false;
+        }
+        return configured;
+    });
 };
