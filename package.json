@@ -1,12 +1,12 @@
 {
   "name": "project-name",
   "version": "0.0.1",
-  "author": "Stephen Young <young.steveo@gmail.com>",
+  "author": "Your Name <your.name@domain.com>",
   "description": "",
   "contributors": [
     {
-      "name": "Stephen Young",
-      "email": "young.steveo@gmail.com"
+      "name": "Your Name",
+      "email": "your.name@domain.com"
     }
   ],
   "main": null,
