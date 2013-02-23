@@ -1,5 +1,9 @@
 /*global module:false*/
 
+/**
+ * Javascript Project Boilerplate
+ * Version 0.1.0
+ */
 module.exports = function(grunt) {
     "use strict";
     var pkg, config;
