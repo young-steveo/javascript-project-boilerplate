@@ -95,6 +95,10 @@ module.exports = function(grunt) {
             log.writeln('project.json.name has not been configured.');
             configured = false;
         }
+        if (pkg.version === '0.0.0') {
+            log.writeln('project.json.version has not been configured. Consider 0.0.1');
+            configured = false;
+        }
         if (pkg.author === 'Your Name <your.name@domain.com>') {
             log.writeln('project.json.author has not been configured.');
             configured = false;
