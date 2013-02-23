@@ -1,8 +1,8 @@
 /**
- * project-name v0.0.1 - 2013-02-10
+ * project-name v0.0.1 - 2013-02-22
  * 
  *
- * Copyright (c) 2013 Stephen Young <young.steveo@gmail.com>
+ * Copyright (c) 2013 Your Name <your.name@domain.com>
  * Licensed MIT
  */
 ;(function(undefined){
