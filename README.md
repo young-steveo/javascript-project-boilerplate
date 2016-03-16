@@ -1,3 +1,5 @@
+[UNMAINTAINED]
+
 # Javascript Project Boilerplate
 A template for Javascript projects intended to kick-start productivity.
 
